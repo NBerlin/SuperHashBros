@@ -49,14 +49,17 @@ def greedSort(photoList):
     photoList[0].use()
     bestList.append(photoList[0])
 
+    count = 0
     while(True):
-        print('found')
+        count = count + 1
+        print(count)
         isDone, picked = pickNext(bestList[-1], photoList)
         if isDone:
             break
         if picked is not None:
             picked.use()
             bestList.append(picked)
+        photoList = list(filter(lambda a : not a.isUsed, photoList))
 
     return bestList
 
@@ -68,8 +71,9 @@ def dumbSolution(num):
     finalForm = ho + pairVerticals(ve)
     printOutput(num, greedSort(finalForm))
 
+dumbSolution(1)
 dumbSolution(2)
-for x in range(5):
-    dumbSolution(x)
-    print(str(x), "done, let's go")
+dumbSolution(3)
+dumbSolution(4)
+dumbSolution(5)
 
