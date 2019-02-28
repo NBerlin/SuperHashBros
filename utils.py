@@ -1,7 +1,10 @@
 from myIO import getPhotoList, printOutput
 
-def onlyVertical(inList, bool):
-    return list(filter(lambda a : a.isVertical() == bool, inList))
+def onlyVertical(inList):
+    return list(filter(lambda a : a.isVertical() == True, inList))
+
+def onlyHorizontal(inList):
+    return list(filter(lambda a : a.isVertical() == False, inList))
 
 def photoListToTags(photoList):
     return [x.getTags() for x in photoList]
@@ -9,20 +12,21 @@ def photoListToTags(photoList):
 def photoListToIndex(photoList):
     return [x.getIndex() for x in photoList]
 
-def addListLayer(inList):
-    return [[x] for x in inList]
-
-
 def pairVerticals(vertPhotos):
     if len(vertPhotos) % 2 == 1:
         vertPhotos.pop()
-    return [[vertPhotos[i], vertPhotos[i+1]] for i in range(0, len(vertPhotos), 2)]
+    merged=[]
+    for i in range(0, len(vertPhotos), 2):
+        vertPhotos[i].merge(vertPhotos[i+1])
+        merged.append(vertPhotos[i])
+    return merged
 
 def dumbSolution(num):
     allPics = getPhotoList(num)
-    ho = addListLayer(onlyVertical(allPics, False))
-    ve = onlyVertical(allPics, True)
+    ve = onlyVertical(allPics)
+    ho = onlyHorizontal(allPics)
     printOutput(num, ho + pairVerticals(ve))
 
 for x in range(5):
     dumbSolution(x)
+
