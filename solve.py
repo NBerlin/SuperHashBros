@@ -1,10 +1,3 @@
-for photo in list:
-    otherPhotos=[]
-    if(not photo.isVertical()):
-        for photo2 in list:
-            otherPhotos.append([getPoints(photo.getTags(),photo2.getTags())])
-
-
 
 def combineTags(tags1,tags2):
     return set(tags1, tags2)
@@ -20,4 +13,27 @@ def removeCommonElements(a, b):
         if e in b:
             a.remove(e)
     return a
+
+def setOtherPhotosHorizontal(list):
+    for photo in list:
+        otherPhotos=[]
+        for photo2 in list:
+            if not photo2.isVertical():
+                otherPhotos.append([getPoints(photo.getTags(),photo2.getTags()),photo2])
+        photo.setOtherPhotos(otherPhotos)
+
+def setOtherPhotosVertical(list):
+
+def setOrder(list):
+    photos=[]
+    lastPhoto=None
+    for photo in list():
+        if not photo.isVertical():
+            if lastPhoto==None:
+                lastPhoto=photo
+                photos.append(photo)
+            else:
+                list2=photo.getOtherPhotos()
+                maxPoints=None
+
 
