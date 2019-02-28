@@ -2,8 +2,8 @@ class photo():
     def __init__(self, tags, isVert, index):
         self.tags = tags
         self.isVert = isVert
-        self.photoId = photoId
-        self.isUsed = false
+        self.index = index
+        self.isUsed = False
 
     def getTags(self):
         return self.tags

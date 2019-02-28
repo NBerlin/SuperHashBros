@@ -26,3 +26,5 @@ def printOutput(num, listOfSlides):
     for slideList in listOfSlides:
         solveFile.write(" ".join([str(x) for x in slideList]) + '\n')
     solveFile.close()
+
+
