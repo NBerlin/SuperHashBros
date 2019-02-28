@@ -16,6 +16,7 @@ def getPhotoList(num):
         isVert = True if split.pop(0) == 'V' else False
         split.pop(0)
         photos.append(photo(split, isVert, num))
+    input.close()
     return photos
 
 
@@ -24,3 +25,4 @@ def printOutput(num, listOfSlides):
     solveFile.write(str(len(listOfSlides)) + '\n')
     for slideList in listOfSlides:
         solveFile.write(" ".join([str(x) for x in slideList]) + '\n')
+    solveFile.close()
