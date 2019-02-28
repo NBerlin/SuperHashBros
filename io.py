@@ -8,10 +8,12 @@ filenames = [
 def getPhotoList(num):
     photos = []
     input = open(f"./inputs/{filenames[int(num)]}")
-    for num, line in enumerate(input):
-        if num is not 0:
-            split = line.strip().split(' ')
-            isVert = True if split.pop(0) == 'V' else False
-            split.pop(0)
-            photos.append(photo(split, isVert))
+    lines = input.read().split('\n')
+    lines.pop() # remove blank line at end
+    lines.pop(0) # remove first line
+    for num, line in enumerate(lines):
+       split = line.strip().split(' ')
+       isVert = True if split.pop(0) == 'V' else False
+       split.pop(0)
+       photos.append(photo(split, isVert, num))
     return photos
