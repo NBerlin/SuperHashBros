@@ -23,8 +23,9 @@ def getPhotoList(num):
 def printOutput(num, listOfSlides):
     solveFile = open(f"./outputs/SOLUTION_{filenames[int(num)]}", 'w')
     solveFile.write(str(len(listOfSlides)) + '\n')
+
     for slideList in listOfSlides:
-        solveFile.write(" ".join([str(x) for x in slideList]) + '\n')
+        solveFile.write(" ".join([str(x.getIndex()) for x in slideList]) + '\n')
     solveFile.close()
 
 
