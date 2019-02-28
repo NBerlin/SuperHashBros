@@ -7,6 +7,3 @@ class photo():
 
     def getOrientation(self):
         return self.ori;
-
-    def getPoints(self,tags2):
-        
