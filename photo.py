@@ -1,9 +1,10 @@
 class photo():
-    def __init__(self,tags,ori):
-        self.tags=tags
-        self.ori=ori
+    def __init__(self, tags, isVert):
+        self.tags = tags
+        self.isVert = isVert
+
     def getTags(self):
         return self.tags
 
-    def getOrientation(self):
-        return self.ori;
+    def isVertical(self):
+        return self.isVert
