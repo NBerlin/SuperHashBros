@@ -19,3 +19,6 @@ class photo():
 
     def use(self):
         self.isUsed = True
+
+    def setOtherPhotos(self,otherPhotos):
+        self.otherPhotos=otherPhotos
