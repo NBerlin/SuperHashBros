@@ -19,4 +19,3 @@ def setOtherPhotosHorizontal(list):
         for photo2 in list:
             otherPhotos.append([getPoints(photo.getTags(),photo2.getTags()),photo2])
         photo.setOtherPhotos(otherPhotos)
-

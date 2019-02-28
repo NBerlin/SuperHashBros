@@ -15,11 +15,32 @@ def photoListToIndex(photoList):
 def pairVerticals(vertPhotos):
     if len(vertPhotos) % 2 == 1:
         vertPhotos.pop()
-    merged=[]
-    for i in range(0, len(vertPhotos), 2):
-        vertPhotos[i].merge(vertPhotos[i+1])
-        merged.append(vertPhotos[i])
-    return merged
+    usedPhotos=[]
+    noUsePhotos=[]
+    for photo in vertPhotos:
+        if photo in noUsePhotos:
+            continue
+        maxTags=0
+        secondPhoto=photo
+
+        for index in range(-100,100):
+            if(photo.getIndex()+index>len(vertPhotos)-2 or photo.getIndex()+index<0):
+                break
+            photo2=vertPhotos[photo.getIndex()+index]
+            if photo2 in noUsePhotos:
+                continue
+            score= len(set(photo.getTags()+photo2.getTags()))
+            if(score>maxTags):
+                secondPhoto=photo2
+                maxTags=score
+        usedPhotos.append([photo,secondPhoto])
+        noUsePhotos.append(photo)
+        noUsePhotos.append(secondPhoto)
+
+
+
+
+    return noUsePhotos
 
 def dumbSolution(num):
     allPics = getPhotoList(num)
