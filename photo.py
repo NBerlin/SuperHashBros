@@ -3,7 +3,7 @@ class photo():
         self.tags = tags
         self.isVert = isVert
         self.photoId = photoId
-
+        self.isUsed = false
 
     def getTags(self):
         return self.tags
@@ -13,3 +13,9 @@ class photo():
 
     def getIndex(self):
         return self.index
+
+    def isUsed(self):
+        return self.isUsed
+
+    def use(self):
+        self.isUsed = True
