@@ -2,7 +2,7 @@ for photo in list:
     otherPhotos=[]
     if(not photo.isVertical()):
         for photo2 in list:
-            otherPhotos.append([getPoints(photo.getTags(),photo2)])
+            otherPhotos.append([getPoints(photo.getTags(),photo2.getTags())])
 
 
 
